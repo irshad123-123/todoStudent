@@ -1,0 +1,38 @@
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>inStock</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pro of proArr; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{pro.productName | titlecase}}</td>
+                <td>{{pro.price}}</td>
+                <td>{{pro.category | titlecase}}</td>
+                <td>{{pro.inStock ? 'Available' : 'Unavailable'}}</td>
+                <td>
+                    <button
+                    (click)="onEdit(pro)"
+                    mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+                <td>
+                    <button
+                    (click)="onRemove(pro.productId)"
+                    mat-mini-fab color="warn" aria-label="Example icon button with a menu icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

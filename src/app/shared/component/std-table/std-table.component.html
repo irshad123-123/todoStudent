@@ -1,0 +1,47 @@
+
+<div class="form-group">
+    <input [(ngModel)]="searchText" class="form-control" placeholder="Search student...">
+</div>
+<div class="table-responsive" *ngIf="stdArr.length>0; else noData">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>name</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>Marks</th>
+                <th>Edit</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of stdArr | filter : searchText ; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{std.name}}</td>
+                <td>{{std.age}}</td>
+                <td>{{std.course}}</td>
+                <td>{{std.marks}}</td>
+                <td>
+                    <button
+                    (click)="onEdit(std)"
+                    mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+                <td>
+                    <button
+                    [disabled]="std.id === editStdId"
+                    (click)="onRemove(std)"
+                    mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #noData>
+    <p class="alert alert-info">NO DATA...</p>
+</ng-template>

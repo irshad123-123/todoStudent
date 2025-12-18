@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-body">
+        <form #formRef="ngForm" (ngSubmit)="onAddForm()">
+            <div class="form-group">
+                <input
+                required
+                ngModel
+                name="name"
+                class="form-control" type="text" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input
+                required
+                ngModel
+                name="age"
+                class="form-control" type="number" placeholder="Age">
+            </div>
+            <div class="form-group">
+                <label for="marks">Course</label>
+                <select
+                required
+                ngModel
+                name="course"
+                class="form-control" type="number" id="course">
+            <option value="B.Sc">B.Sc</option>
+            <option value="BCA">BCA</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="MBA">MBA</option>
+            <option value="BA">BA</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <input
+                required
+                ngModel
+                name="marks"
+                class="form-control" type="number" placeholder="Marks">
+            </div>
+            
+            <div class="d-flex justify-content-end">
+                <button
+                [disabled]="formRef.invalid"
+                type="submit" *ngIf = '!isEditMode' mat-raised-button color="primary">Add Student</button>
+                <button
+                [disabled]="formRef.invalid"
+                (click)="onUpdate()"
+                type="button" *ngIf="isEditMode" mat-raised-button color="primary">Update Student</button>
+            </div>
+        </form>
+    </div>
+</div>

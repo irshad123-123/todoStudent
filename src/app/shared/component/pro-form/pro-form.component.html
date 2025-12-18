@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+        <form #formProd="ngForm" (ngSubmit)="onAddProd()">
+            <div class="form-group">
+                <input
+                ngModel
+                required
+                name="productName"
+                class="form-control" placeholder="Product Name">
+            </div>
+            <div class="form-group">
+                <input
+                ngModel
+                required
+                name="price"
+                class="form-control" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <input
+                ngModel
+                required
+                name="category"
+                class="form-control" placeholder="Category">
+            </div>
+            <div class="form-group">
+                <label for="info">Status</label>
+                <select
+                ngModel
+                required
+                name="inStock"
+                id="info" class="form-control">
+                    <option [ngValue]="true">Available</option>
+                    <option [ngValue]="false">Unavailable</option>
+                </select>
+            </div>
+            <button [disabled]="formProd.invalid" *ngIf="!isEditMode" type="submit" mat-raised-button color="primary">Add Product</button>
+            <button
+            (click)="onUpdate()"
+            [disabled]="formProd.invalid" *ngIf="isEditMode" type="button" mat-raised-button color="primary">Update Product</button>
+        </form>
+    </div>
+</div>
