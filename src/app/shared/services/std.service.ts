@@ -27,7 +27,7 @@ export class StdService {
 
   posts$: Subject<Istd> = new Subject()
   fetchAll():Observable<Istd[]> {
-    return of([...this.stdArr])
+    return of(this.stdArr)
   }
   addStd(obj: Istd):Observable<Istd> {
     this.stdArr.push(obj)
