@@ -26,6 +26,7 @@ export class StdService {
   ]
 
   posts$: Subject<Istd> = new Subject()
+  stdUpdateFlag$: Subject<boolean> = new Subject()
   fetchAll():Observable<Istd[]> {
     return of(this.stdArr)
   }

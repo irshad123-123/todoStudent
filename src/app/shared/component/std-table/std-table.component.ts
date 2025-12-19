@@ -16,11 +16,16 @@ export class StdTableComponent implements OnInit {
     .subscribe({
       next : res=>this.stdArr=res,
       error : err=> {}
-    })   
+    })
+    this._stdArr.stdUpdateFlag$
+      .subscribe(res=>{
+        if(res){
+          this.editStdId = ''
+        }
+      })
   }
   onRemove(obj:Istd){
     this._stdArr.removeObj(obj)
-    
   }
   editStdId ! :string
   onEdit(obj : Istd){
