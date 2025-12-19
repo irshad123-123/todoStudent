@@ -50,7 +50,8 @@ export class StdFormComponent implements OnInit {
   }
   onUpdateFlag$ ! : boolean
   onUpdate(){
-    let updated_obj={
+    if(this.formCont.valid){
+      let updated_obj={
       ...this.formCont.value,
       id : this.editId
     }
@@ -59,6 +60,8 @@ export class StdFormComponent implements OnInit {
     this.isEditMode = false
     this.formCont.reset()
     this._snackBar.onSnackBar('The student detail is updated successfully!!!')
+    this._stdService.stdUpdateFlag$.next(true)
+    }
   }
 
 }
