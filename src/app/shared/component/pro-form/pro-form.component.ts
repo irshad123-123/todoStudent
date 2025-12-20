@@ -54,6 +54,7 @@ if(this.formRef.valid){
   this.formRef.reset()
   this.isEditMode = false
   this._proService.updatePro(updated_obj)
+  this._proService.editProId$.next(true)
 }
 }
 }

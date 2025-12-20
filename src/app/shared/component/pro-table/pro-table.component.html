@@ -27,6 +27,7 @@
                 </td>
                 <td>
                     <button
+                    [disabled]="pro.productId == editId"
                     (click)="onRemove(pro.productId)"
                     mat-mini-fab color="warn" aria-label="Example icon button with a menu icon">
                         <mat-icon>delete</mat-icon>

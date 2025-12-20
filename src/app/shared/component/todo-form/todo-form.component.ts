@@ -59,6 +59,7 @@ export class TodoFormComponent implements OnInit {
           this.formRef.reset()
       this.isEditMode = false;
       this._snackBar.onSnackBar('The todoItem is updated successfully!!!')
+      this._todoService.editIdFlag$.next(true)
         },
         error : err => console.log(err)
       })

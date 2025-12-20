@@ -13,6 +13,7 @@ export class ProductsService {
 
   constructor(private _snackBar : SnackBarService) { }
   product$ : Subject<Ipro>  = new Subject<Ipro>()
+  editProId$ : Subject<boolean>  = new Subject<boolean>()
   getAllPro():Observable<Array<Ipro>>{
     return of(this.arrPro)
   }

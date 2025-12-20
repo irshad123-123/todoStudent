@@ -42,6 +42,7 @@ export class TodoService {
   }
 
   todo$ : Subject<Itodo> = new Subject()
+  editIdFlag$ : Subject<boolean> = new Subject()
 
   onUpdateTodo(obj: Itodo){
     let getIndex = this.todoArr.findIndex(f=>f.todoId === obj.todoId)

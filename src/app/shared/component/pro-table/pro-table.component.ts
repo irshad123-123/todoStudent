@@ -23,6 +23,18 @@ export class ProTableComponent implements OnInit {
           console.log(err);
         }
       })
+      this._proService.editProId$ 
+        .subscribe({
+          next : res=>{
+            if(res){
+              this.editId = ''
+            }
+          },
+          error : err =>{
+            console.log(err)
+            
+          }
+        })
   }
 onRemove(id:string){
   let isConfirm = confirm('Are you sure, want to remove this product!!')
@@ -30,8 +42,10 @@ onRemove(id:string){
       this._proService.removePro(id)
   }
 }
+editId ! : string | boolean
 onEdit(obj : Ipro){
   this._proService.product$.next(obj)
+  this.editId = obj.productId
 }
 
 }

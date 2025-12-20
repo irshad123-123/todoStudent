@@ -15,6 +15,8 @@ import { TodoPipe } from './shared/pipes/todo.pipe';
 import { StudentFilter } from './shared/pipes/student.pipe';
 import { ProFormComponent } from './shared/component/pro-form/pro-form.component';
 import { ProTableComponent } from './shared/component/pro-table/pro-table.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { GetConfirmComponent } from './shared/component/get-confirm/get-confirm.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ProTableComponent } from './shared/component/pro-table/pro-table.compon
     TodoPipe,
     StudentFilter,
     ProFormComponent,
-    ProTableComponent
+    ProTableComponent,
+    GetConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { ProTableComponent } from './shared/component/pro-table/pro-table.compon
     MatIconModule,
     FormsModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
